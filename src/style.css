@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+}
+.content {
+    height: 100%;
+    width: 100%;
+    background-image: url('./restaurant.jpg');
+}
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.301);
+}
+.titleText {
+    color: blue;
+}
