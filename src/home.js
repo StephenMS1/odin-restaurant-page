@@ -2,9 +2,10 @@ import chefBonImage from './land-img.jpg';
 
 function homePage() {
     let homeScreen = document.createElement('div');
-    homeScreen.classList.add('homeScreen');
+    homeScreen.classList.add('homePage');
 
     let chefBonnie = document.createElement('img');
+    chefBonnie.classList.add('chefBonnie');
     chefBonnie.src = chefBonImage;
 
     homeScreen.appendChild(createText("Hi, I'm Bonnie and welcome to my restaurant"))
@@ -16,13 +17,12 @@ function homePage() {
 }
 
 function createText(input){
-    text = document.createElement('p');
-    text.textContent = text
+    let text = document.createElement('p');
+    text.textContent = input;
     return text;
 }
 
-function loadHomePage() {
-    let webpage = document.getElementById('pageSpace');
+function loadHomePage(pageSpace) {
     pageSpace.textContent= '';
     pageSpace.appendChild(homePage());
 }

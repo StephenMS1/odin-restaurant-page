@@ -1,22 +1,101 @@
 * {
     margin: 0;
     padding: 0;
+    color: white;
 }
 body {
     height: 100vh;
     width: 100vw;
+    background-image: url('./restaurant.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
-.content {
+
+/*main site relevant CSS*/
+#content {
     height: 100%;
     width: 100%;
-    background-image: url('./restaurant.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 .banner {
+    padding-top: 50px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.301);
+    background-color: rgba(128, 128, 128, 0.35);
+    gap: 30px;
+
 }
+
 .titleText {
-    color: blue;
+    font-size: 26px;
+}
+
+.navigationPane {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 255, 0);
+    border: none;
+    transition: 0.4s;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: translate(0, -5px);
+}
+
+.pageSpace {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: rgba(128, 128, 128, 0.35);
+}
+
+.githubLogo {
+    width: 40px;
+    height: auto;
+    transition: 0.5s;
+}
+
+.githubLogo:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+/*home page relevant CSS*/
+.homePage {
+    padding-top: 30px;
+    background-color: rgba(128, 128, 128, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 600px;
+    width: 600px;
+}
+
+.chefBonnie {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 100% 0;
 }
