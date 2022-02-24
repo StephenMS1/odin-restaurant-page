@@ -3,6 +3,7 @@ import githubLogo from './GitHub-Mark.png';
 import './style.css';
 import loadHomePage from './home';
 import loadContactPage from './contact';
+import loadMenuPage from './menu';
 
 let webpage = document.getElementById('content');
 
@@ -42,7 +43,7 @@ function createHeader() {
 function createPageSpace() {
     let pageSpace = document.createElement('div');
     pageSpace.classList.add('pageSpace');
-    loadContactPage(pageSpace);
+    loadMenuPage(pageSpace);
     return pageSpace;
 }
 

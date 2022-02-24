@@ -121,3 +121,16 @@ button:hover {
     height: 400px;
     width: 80%;
 }
+
+
+/*menu page relevant CSS*/
+.menuPage {
+    padding-top: 30px;
+    gap: 30px;
+    background-color: rgba(128, 128, 128, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 600px;
+    width: 600px;
+}
