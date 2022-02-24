@@ -5,6 +5,7 @@ import loadHomePage from './home';
 import loadContactPage from './contact';
 import loadMenuPage from './menu';
 
+//trying to call functions from an object by passing string of function name to the pagegenerator? 
 const pageFunctions = {loadHomePage, loadContactPage, loadMenuPage};
 
 let webpage = document.getElementById('content');
@@ -26,14 +27,33 @@ function createHeader() {
     let homeButton = document.createElement('button');
     homeButton.classList.add('homeButton');
     homeButton.textContent = 'Home';
+    homeButton.classList.add('active');
+    homeButton.addEventListener('click', (e) => {
+        if (e.target.classList.contains('active')){
+            return;
+        }
+        loadHomePage();
+    })
 
     let menuButton = document.createElement('button');
     menuButton.classList.add('menuButton');
     menuButton.textContent ='Menu';
+    menuButton.addEventListener('click', (e) => {
+        if (e.target.classList.contains('active')){
+            return;
+        }
+        loadMenuPage();
+    })
 
     let contactButton = document.createElement('button');
     contactButton.classList.add('contactButton');
     contactButton.textContent = 'Contact';
+    contactButton.addEventListener('click', (e) => {
+        if (e.target.classList.contains('active')){
+            return;
+        }
+        loadContactPage();
+    })
 
     navigationPane.append(homeButton, menuButton, contactButton);
     
@@ -41,10 +61,8 @@ function createHeader() {
     return banner;
 }
 
-function NavigationListeners() {
+function activeNavigator() {
     let navButtons = Array.from(document.querySelectorAll('button'));
-    console.log(navButtons);
-
     navButtons.forEach(button => {
         button.addEventListener('click', function(e){
             let clickedButton = e.target;
@@ -52,18 +70,6 @@ function NavigationListeners() {
                 button.classList.remove('active');
             });
             clickedButton.classList.add('active');
-            if (clickedButton.classList.contains('active')){
-                return
-            }
-            if (clickedButton.textContent == 'Home'){
-                generateWebPage('loadHomePage');
-            }
-            else if (clickedButton.textContent == 'Menu'){
-                generateWebPage('loadMenuPage');
-            }
-            else if (clickedButton.textContent == 'Contact'){
-                generateWebPage('loadContactPage');
-            }
         })
     })
 }
@@ -72,7 +78,6 @@ function NavigationListeners() {
 function createPageSpace(pageFunctionsIndex) {
     let pageSpace = document.createElement('div');
     pageSpace.classList.add('pageSpace');
-    pageFunctions[pageFunctionsIndex](pageSpace);
     return pageSpace;
 }
 
@@ -97,11 +102,12 @@ function createFooter() {
 
 }
 
-function generateWebPage(pageFunctionsIndex){
+function generateWebPage(){
     webpage.appendChild(createHeader());
-    webpage.appendChild(createPageSpace(pageFunctionsIndex));
+    webpage.appendChild(createPageSpace());
     webpage.appendChild(createFooter());
-    NavigationListeners();
+    loadHomePage();
+    activeNavigator();
 }
 
 window.addEventListener('load', generateWebPage());

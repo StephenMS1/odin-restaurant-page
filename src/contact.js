@@ -27,8 +27,9 @@ function contactPage(){
     return contactScreen;
 }
 
-function loadContactPage(pageSpace){
-    pageSpace.textContent = '';
+function loadContactPage(){
+    let pageSpace = document.querySelector('.pageSpace');
+    pageSpace.innerHTML = '';
     pageSpace.append(contactPage());
 }
 

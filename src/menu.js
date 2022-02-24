@@ -15,8 +15,9 @@ function menuPage(){
     return menuScreen;
 }
 
-function loadMenuPage(pageSpace){
-    pageSpace.textContent = '';
+function loadMenuPage(){
+    let pageSpace = document.querySelector('.pageSpace');
+    pageSpace.innerHTML = '';
     pageSpace.append(menuPage());
 }
 

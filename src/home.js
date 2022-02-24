@@ -22,8 +22,9 @@ function createText(input){
     return text;
 }
 
-function loadHomePage(pageSpace) {
-    pageSpace.textContent= '';
+function loadHomePage() {
+    let pageSpace = document.querySelector('.pageSpace');
+    pageSpace.innerHTML = '';
     pageSpace.appendChild(homePage());
 }
 
