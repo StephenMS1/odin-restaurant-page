@@ -2,6 +2,7 @@ import restaurant from './restaurant.jpg';
 import githubLogo from './GitHub-Mark.png';
 import './style.css';
 import loadHomePage from './home';
+import loadContactPage from './contact';
 
 let webpage = document.getElementById('content');
 
@@ -41,7 +42,7 @@ function createHeader() {
 function createPageSpace() {
     let pageSpace = document.createElement('div');
     pageSpace.classList.add('pageSpace');
-    loadHomePage(pageSpace);
+    loadContactPage(pageSpace);
     return pageSpace;
 }
 

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color: white;
+    box-sizing: border-box;
 }
 body {
     height: 100vh;
@@ -91,11 +92,32 @@ button:hover {
     height: 600px;
     width: 600px;
 }
-
 .chefBonnie {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
     object-position: 100% 0;
+}
+
+/*contact page relevant CSS*/
+.contactPage {
+    padding-top: 30px;
+    gap: 30px;
+    background-color: rgba(128, 128, 128, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 600px;
+    width: 600px;
+}
+
+.contactPage p {
+    margin-left: 60px;
+}
+
+.map {
+    margin-left: 60px;
+    height: 400px;
+    width: 80%;
 }
