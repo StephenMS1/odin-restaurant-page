@@ -5,6 +5,8 @@ import loadHomePage from './home';
 import loadContactPage from './contact';
 import loadMenuPage from './menu';
 
+const pageFunctions = {loadHomePage, loadContactPage, loadMenuPage};
+
 let webpage = document.getElementById('content');
 
 
@@ -39,11 +41,38 @@ function createHeader() {
     return banner;
 }
 
+function NavigationListeners() {
+    let navButtons = Array.from(document.querySelectorAll('button'));
+    console.log(navButtons);
 
-function createPageSpace() {
+    navButtons.forEach(button => {
+        button.addEventListener('click', function(e){
+            let clickedButton = e.target;
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            clickedButton.classList.add('active');
+            if (clickedButton.classList.contains('active')){
+                return
+            }
+            if (clickedButton.textContent == 'Home'){
+                generateWebPage('loadHomePage');
+            }
+            else if (clickedButton.textContent == 'Menu'){
+                generateWebPage('loadMenuPage');
+            }
+            else if (clickedButton.textContent == 'Contact'){
+                generateWebPage('loadContactPage');
+            }
+        })
+    })
+}
+
+
+function createPageSpace(pageFunctionsIndex) {
     let pageSpace = document.createElement('div');
     pageSpace.classList.add('pageSpace');
-    loadMenuPage(pageSpace);
+    pageFunctions[pageFunctionsIndex](pageSpace);
     return pageSpace;
 }
 
@@ -68,7 +97,11 @@ function createFooter() {
 
 }
 
+function generateWebPage(pageFunctionsIndex){
+    webpage.appendChild(createHeader());
+    webpage.appendChild(createPageSpace(pageFunctionsIndex));
+    webpage.appendChild(createFooter());
+    NavigationListeners();
+}
 
-webpage.appendChild(createHeader());
-webpage.appendChild(createPageSpace());
-webpage.appendChild(createFooter());
+window.addEventListener('load', generateWebPage());
